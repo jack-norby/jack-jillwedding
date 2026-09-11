@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP | Jack &amp; Jill</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <a href="index.html" class="monogram">J &amp; J</a>
+  <ul class="site-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="travel.html">Travel</a></li>
+    <li><a href="registry.html">Registry</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
+    <li><a class="active" href="rsvp.html">RSVP</a></li>
+  </ul>
+</header>
+
+<section>
+  <h1 class="page-title">RSVP</h1>
+  <hr class="rule">
+
+  <div class="wrap">
+    <p class="lead">
+      Please let us know if you can join us. If your invitation included
+      guests, respond for everyone in your party.
+      <span class="deadline">Kindly reply by [EDIT ME: date]</span>
+    </p>
+
+    <!--
+      EDIT ME — paste your Google Form's embed URL into the src="" below.
+
+      How to get it:
+        1. Create your form at forms.google.com
+        2. Click Send (top right), then the < > tab
+        3. Copy just the URL inside src="..." — it looks like
+           https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
+        4. Paste it over the placeholder below, AND over the href in the
+           fallback link underneath (drop the ?embedded=true there)
+    -->
+    <div class="form-embed">
+      <iframe
+        src="https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID_HERE/viewform?embedded=true"
+        title="Wedding RSVP form"
+        loading="lazy">
+        Loading&hellip;
+      </iframe>
+
+      <p class="form-fallback">
+        Form not loading?
+        <a class="link" href="https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID_HERE/viewform" target="_blank" rel="noopener">Open it in a new tab</a>
+      </p>
+    </div>
+
+    <p class="note">
+      Having trouble? Email or text us and we'll add you ourselves &mdash;
+      [EDIT ME: your contact info].
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span class="monogram">J &amp; J</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
