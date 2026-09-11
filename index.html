@@ -8,73 +8,59 @@
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="monogram">J &amp; J</a>
-    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
-    <ul>
-      <li><a class="nav-link active" href="index.html">Home</a></li>
-      <li><a class="nav-link" href="registry.html">Registry</a></li>
-      <li><a class="nav-link" href="faqs.html">FAQs</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="stationery">
-    <div class="stationery-card">
-      <p class="eyebrow-date">Together with their families</p>
-      <h1>Jack &amp; Jill</h1>
-      <p class="place">May 22, 2027 &middot; Adel, Iowa</p>
-
-      <div class="countdown" id="countdown">
-        <div><span class="num" id="cd-days">--</span><span class="label">Days</span></div>
-        <div><span class="num" id="cd-hours">--</span><span class="label">Hours</span></div>
-        <div><span class="num" id="cd-mins">--</span><span class="label">Minutes</span></div>
-        <div><span class="num" id="cd-secs">--</span><span class="label">Seconds</span></div>
-      </div>
-    </div>
-  </div>
+<header class="site-head">
+  <a href="index.html" class="monogram">Jack &amp; Jill</a>
+  <ul class="site-nav">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="registry.html">Registry</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
+  </ul>
 </header>
 
-<section id="story">
-  <div class="wrap story">
-    <h2 class="section-title">Our story</h2>
-    <hr class="rule">
-    <!-- EDIT ME: swap in your real story -->
-    <p>
-      From our first date to this next chapter, it's been a joy getting here
-      together. We can't wait to celebrate with the people who mean the most
-      to us as we begin our life as husband and wife.
-    </p>
+<section class="hero">
+  <h1 class="names">
+    Jack
+    <span class="amp">&amp;</span>
+    Jill
+  </h1>
+
+  <div class="hero-meta">
+    <div>
+      <span class="big">Adel</span>
+      <span class="small">IA</span>
+    </div>
+    <div>
+      <span class="big">May 22</span>
+      <span class="small">2027</span>
+    </div>
   </div>
+
+  <div id="countdown"></div>
 </section>
 
-<section id="details" class="alt">
+<!--
+  EDIT ME: ceremony + reception details.
+  Delete this whole <section> if you'd rather the home page stay
+  just the names, place, and date like the Zola preview.
+-->
+<section>
   <div class="wrap">
-    <h2 class="section-title">Wedding details</h2>
-    <p class="section-intro">We'd love for you to join us as we say &ldquo;I do.&rdquo;</p>
-
-    <div class="details-grid">
-      <div class="col">
+    <div class="details">
+      <div>
         <h3>Ceremony</h3>
-        <!-- EDIT ME: add your church name, address, and time -->
-        <p>[Church Name]<br>[Street Address]<br>Adel, IA</p>
+        <p>[Venue Name]<br>[Street Address]<br>Adel, IA</p>
         <p>2:00 PM</p>
       </div>
-      <div class="col">
+      <div>
         <h3>Reception</h3>
-        <!-- EDIT ME: add reception details -->
-        <p>Immediately following the ceremony<br>Same location</p>
-        <p>Cake, a grazing board, and a mocktail hour &mdash; dancing to follow.</p>
+        <p>Immediately following, at the same venue.</p>
       </div>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
-  <span class="monogram">J &amp; J</span>
-  <p>We can't wait to celebrate with you.</p>
+  <span class="monogram">Jack &amp; Jill</span>
 </footer>
 
 <script src="script.js"></script>
