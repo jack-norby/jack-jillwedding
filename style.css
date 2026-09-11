@@ -7,13 +7,13 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap');
 
 :root {
-  --bg:          #F4F2ED;   /* warm off-white page background */
-  --green:       #33503F;   /* primary deep green — all text */
-  --green-soft:  #6F8375;   /* muted green for small labels */
-  --line:        #DAD5C9;   /* hairline rules */
-  --script:      'Pinyon Script', cursive;
-  --serif:       'EB Garamond', Georgia, serif;
-  --max:         900px;
+  --bg:           #F7F2E9;   /* warm cream page background */
+  --ganache:      #5B3A29;   /* primary — deep ganache brown, all text */
+  --ganache-soft: #8A6247;   /* muted brown for small labels */
+  --line:         #DCCDB8;   /* hairline rules */
+  --script:       'Pinyon Script', cursive;
+  --serif:        'EB Garamond', Georgia, serif;
+  --max:          900px;
 }
 
 * { box-sizing: border-box; }
@@ -21,7 +21,7 @@
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--green);
+  color: var(--ganache);
   font-family: var(--serif);
   font-size: 1.05rem;
   line-height: 1.7;
@@ -51,7 +51,7 @@ a { color: inherit; }
   font-family: var(--script);
   font-size: clamp(2rem, 5vw, 2.9rem);
   line-height: 1.2;
-  color: var(--green);
+  color: var(--ganache);
   text-decoration: none;
   display: inline-block;
 }
@@ -75,7 +75,7 @@ a { color: inherit; }
 }
 
 .site-nav a:hover { border-bottom-color: var(--line); }
-.site-nav a.active { border-bottom-color: var(--green); }
+.site-nav a.active { border-bottom-color: var(--ganache); }
 
 /* ---------- Home hero ---------- */
 
@@ -117,7 +117,7 @@ a { color: inherit; }
   display: block;
   font-size: 1rem;
   letter-spacing: 0.06em;
-  color: var(--green-soft);
+  color: var(--ganache-soft);
 }
 
 #countdown {
@@ -195,7 +195,7 @@ section { padding: 0 0 4.5rem; }
 
 .registry-item p {
   margin: 0 0 1.25rem;
-  color: var(--green-soft);
+  color: var(--ganache-soft);
 }
 
 .link {
@@ -204,17 +204,17 @@ section { padding: 0 0 4.5rem; }
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--green);
+  border-bottom: 1px solid var(--ganache);
   padding-bottom: 3px;
 }
 
-.link:hover { color: var(--green-soft); border-bottom-color: var(--green-soft); }
+.link:hover { color: var(--ganache-soft); border-bottom-color: var(--ganache-soft); }
 
 .note {
   max-width: 520px;
   margin: 3rem auto 0;
   text-align: center;
-  color: var(--green-soft);
+  color: var(--ganache-soft);
   font-style: italic;
 }
 
@@ -243,7 +243,7 @@ section { padding: 0 0 4.5rem; }
 
 .faq-item summary::after {
   content: '+';
-  color: var(--green-soft);
+  color: var(--ganache-soft);
   font-size: 1.3rem;
   flex-shrink: 0;
 }
@@ -252,7 +252,7 @@ section { padding: 0 0 4.5rem; }
 
 .faq-item p {
   margin: 0 0 1.6rem;
-  color: var(--green-soft);
+  color: var(--ganache-soft);
 }
 
 /* ---------- Footer ---------- */
