@@ -1,46 +1,31 @@
-// ---- Mobile nav toggle ----
+// Countdown to the ceremony. Runs only on pages that have a #countdown element.
 document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.nav-toggle');
-  var menu = document.querySelector('.site-nav ul');
-  if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      menu.classList.toggle('open');
-    });
+  var el = document.getElementById('countdown');
+  if (!el) return;
+
+  // EDIT ME: your exact ceremony date and time.
+  var weddingDate = new Date('2027-05-22T14:00:00');
+
+  function unit(n, word) {
+    return '<span>' + n + ' ' + word + (n === 1 ? '' : 's') + '</span>';
   }
 
-  // ---- Countdown (only runs if a #countdown block exists on the page) ----
-  var countdownEl = document.getElementById('countdown');
-  if (countdownEl) {
-    // EDIT ME: set your exact ceremony date/time here
-    var weddingDate = new Date('2027-05-22T14:00:00');
+  function tick() {
+    var diff = weddingDate - new Date();
 
-    var daysEl = document.getElementById('cd-days');
-    var hoursEl = document.getElementById('cd-hours');
-    var minsEl = document.getElementById('cd-mins');
-    var secsEl = document.getElementById('cd-secs');
-
-    function tick() {
-      var now = new Date();
-      var diff = weddingDate - now;
-
-      if (diff <= 0) {
-        countdownEl.innerHTML = '<p class="place">We\u2019re married! \uD83D\uDC97</p>';
-        clearInterval(timer);
-        return;
-      }
-
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      var mins = Math.floor((diff / (1000 * 60)) % 60);
-      var secs = Math.floor((diff / 1000) % 60);
-
-      daysEl.textContent = days;
-      hoursEl.textContent = String(hours).padStart(2, '0');
-      minsEl.textContent = String(mins).padStart(2, '0');
-      secsEl.textContent = String(secs).padStart(2, '0');
+    if (diff <= 0) {
+      el.innerHTML = '<span>We’re married!</span>';
+      clearInterval(timer);
+      return;
     }
 
-    tick();
-    var timer = setInterval(tick, 1000);
+    el.innerHTML =
+      unit(Math.floor(diff / 86400000), 'day') +
+      unit(Math.floor(diff / 3600000) % 24, 'hour') +
+      unit(Math.floor(diff / 60000) % 60, 'minute') +
+      unit(Math.floor(diff / 1000) % 60, 'second');
   }
+
+  tick();
+  var timer = setInterval(tick, 1000);
 });
