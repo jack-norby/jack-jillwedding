@@ -272,3 +272,105 @@ section { padding: 0 0 4.5rem; }
   .details { grid-template-columns: 1fr; gap: 2.5rem; }
   #countdown { gap: 0.4rem 1.25rem; }
 }
+
+/* ---------- Intro prose (homepage "Our wedding") ---------- */
+
+.prose {
+  max-width: 34em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prose p { margin: 0 0 1.4rem; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------- Shared stacked lists (registry / schedule / hotels) ---------- */
+
+.stack {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.stack-item {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.stack-item:last-child { border-bottom: 1px solid var(--line); }
+
+.stack-item h3 {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: 1.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.stack-item p {
+  margin: 0 0 0.75rem;
+  color: var(--ganache-soft);
+}
+
+.stack-item p:last-child { margin-bottom: 0; }
+
+.stack-item .time {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- Sub-headings within a page (e.g. each town on Travel) ---------- */
+
+.group-title {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: 2.1rem;
+  text-align: center;
+  margin: 3.5rem 0 0.4rem;
+}
+
+.group-note {
+  text-align: center;
+  color: var(--ganache-soft);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.5rem;
+}
+
+/* ---------- RSVP form embed ---------- */
+
+.form-embed {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-embed iframe {
+  width: 100%;
+  min-height: 900px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.form-fallback {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ganache-soft);
+}
+
+.lead {
+  max-width: 34em;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.deadline {
+  display: block;
+  font-family: var(--script);
+  font-size: 1.8rem;
+  color: var(--ganache);
+  margin-top: 0.75rem;
+}
