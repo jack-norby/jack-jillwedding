@@ -1,406 +1,274 @@
 /* =========================================================
    Jack & Jill — Wedding Website Stylesheet
-   Palette: warm cream paper + ganache brown, inspired by
-   letterpress stationery. Edit the variables below to
-   retheme the whole site at once.
+   Everything is controlled by the variables below. Change a
+   color or font here once and every page follows.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap');
 
 :root {
-  --cream:        #F7F1E6;   /* page background */
-  --cream-deep:    #EFE4D0;  /* alternating section bg */
-  --paper:         #FFFDF8;  /* card / stationery surface */
-  --ganache:       #5B3A29;  /* primary accent (deep brown) */
-  --ganache-soft:  #8A6247;  /* secondary accent / hover */
-  --ink:           #2B2018;  /* body text, warm near-black */
-  --ink-soft:      #6B5C4E;  /* muted text */
-  --line:          #C9AE8C;  /* hairline rule */
-  --max-width:     780px;
+  --bg:          #F4F2ED;   /* warm off-white page background */
+  --green:       #33503F;   /* primary deep green — all text */
+  --green-soft:  #6F8375;   /* muted green for small labels */
+  --line:        #DAD5C9;   /* hairline rules */
+  --script:      'Pinyon Script', cursive;
+  --serif:       'EB Garamond', Georgia, serif;
+  --max:         900px;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  line-height: 1.65;
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
 }
 
 a { color: inherit; }
 
-/* ---------- Layout helpers ---------- */
-
 .wrap {
-  max-width: var(--max-width);
+  max-width: var(--max);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-section { padding: 4rem 0; }
-section.alt { background: var(--cream-deep); }
+/* ---------- Header: monogram + centered nav ---------- */
 
-.rule {
-  width: 64px;
-  height: 1px;
-  background: var(--line);
-  margin: 1.75rem auto;
-  border: none;
+.site-head {
+  text-align: center;
+  padding: 3.5rem 1.5rem 0;
 }
 
-/* ---------- Navigation ---------- */
+.monogram {
+  font-family: var(--script);
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.2;
+  color: var(--green);
+  text-decoration: none;
+  display: inline-block;
+}
 
 .site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(247, 241, 230, 0.92);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
-}
-
-.site-nav .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
-}
-
-.site-nav .monogram {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 1.5rem;
-  color: var(--ganache);
-  text-decoration: none;
-}
-
-.site-nav ul {
-  display: flex;
-  gap: 2rem;
   list-style: none;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin: 1.75rem 0 0;
   padding: 0;
 }
 
-.site-nav a.nav-link {
+.site-nav a {
   text-decoration: none;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-  padding-bottom: 3px;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
   border-bottom: 1px solid transparent;
 }
 
-.site-nav a.nav-link:hover,
-.site-nav a.nav-link.active {
-  border-bottom-color: var(--ganache);
-  color: var(--ganache);
-}
+.site-nav a:hover { border-bottom-color: var(--line); }
+.site-nav a.active { border-bottom-color: var(--green); }
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.4rem 0.6rem;
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--ganache);
-  cursor: pointer;
-}
-
-@media (max-width: 560px) {
-  .nav-toggle { display: inline-block; }
-
-  .site-nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    padding: 1rem 0 0.5rem;
-  }
-
-  .site-nav ul.open { display: flex; }
-
-  .site-nav .wrap { flex-wrap: wrap; }
-}
-
-/* ---------- Hero (stationery-card treatment) ---------- */
+/* ---------- Home hero ---------- */
 
 .hero {
-  padding: 4.5rem 1.5rem 3.5rem;
+  text-align: center;
+  padding: clamp(3.5rem, 11vw, 8rem) 1.5rem clamp(3rem, 8vw, 5.5rem);
+}
+
+.hero .names {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 13vw, 6.5rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.hero .amp {
+  display: block;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 2.4;
+}
+
+/* place on the left, date on the right */
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 680px;
+  margin: clamp(3rem, 9vw, 6rem) auto 0;
+}
+
+.hero-meta .big {
+  display: block;
+  font-family: var(--script);
+  font-size: clamp(1.9rem, 5vw, 2.9rem);
+  line-height: 1.3;
+}
+
+.hero-meta .small {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--green-soft);
+}
+
+#countdown {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Page titles + sections ---------- */
+
+section { padding: 0 0 4.5rem; }
+
+.page-title {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  text-align: center;
+  margin: clamp(3rem, 8vw, 5rem) 0 2.5rem;
+  line-height: 1.2;
+}
+
+.rule {
+  width: 56px;
+  height: 1px;
+  background: var(--line);
+  border: none;
+  margin: 0 auto 3rem;
+}
+
+/* ---------- Details (ceremony / reception) ---------- */
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 680px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.stationery {
-  position: relative;
-  max-width: 560px;
+.details h3 {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: 1.9rem;
+  margin: 0 0 0.75rem;
+}
+
+.details p { margin: 0 0 0.75rem; }
+
+/* ---------- Registry ---------- */
+
+.registry-list {
+  max-width: 620px;
   margin: 0 auto;
 }
 
-/* two faint cards peeking out behind the main card,
-   like a stack of letterpress invitations */
-.stationery::before,
-.stationery::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  z-index: 0;
+.registry-item {
+  border-top: 1px solid var(--line);
+  padding: 2.25rem 0;
+  text-align: center;
 }
 
-.stationery::before {
-  transform: rotate(-2.5deg);
-}
+.registry-item:last-child { border-bottom: 1px solid var(--line); }
 
-.stationery::after {
-  transform: rotate(2deg);
-}
-
-.stationery-card {
-  position: relative;
-  z-index: 1;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 3rem 2rem;
-  box-shadow: 0 18px 36px -24px rgba(43, 32, 24, 0.45);
-}
-
-.hero .eyebrow-date {
-  color: var(--ink-soft);
-  font-style: italic;
-  letter-spacing: 0.03em;
+.registry-item h3 {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: 2rem;
   margin: 0 0 0.5rem;
 }
 
-.hero h1 {
-  font-family: 'Petit Formal Script', cursive;
-  font-weight: 400;
-  font-size: clamp(2.6rem, 8vw, 4rem);
-  color: var(--ganache);
-  margin: 0.25rem 0;
-  line-height: 1.1;
+.registry-item p {
+  margin: 0 0 1.25rem;
+  color: var(--green-soft);
 }
 
-.hero .place {
-  color: var(--ink-soft);
-  font-size: 1.05rem;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 1.75rem;
-  margin-top: 2.25rem;
-}
-
-.countdown div { text-align: center; }
-
-.countdown .num {
-  display: block;
-  font-size: 1.9rem;
-  color: var(--ganache);
-  font-weight: 500;
-}
-
-.countdown .label {
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* ---------- Section headings ---------- */
-
-h2.section-title {
-  text-align: center;
-  font-weight: 500;
-  font-style: italic;
-  font-size: 2.1rem;
-  color: var(--ganache);
-  margin: 0 0 0.25rem;
-}
-
-.section-intro {
-  text-align: center;
-  max-width: 520px;
-  margin: 0 auto 2.5rem;
-  color: var(--ink-soft);
-}
-
-/* ---------- Details grid (ceremony / reception) ---------- */
-
-.details-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.details-grid .col {
-  padding: 0 2rem;
-  text-align: center;
-}
-
-.details-grid .col:first-child {
-  border-right: 1px solid var(--line);
-}
-
-.details-grid h3 {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--ganache);
-  margin-top: 0;
-}
-
-@media (max-width: 560px) {
-  .details-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .details-grid .col:first-child {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 2rem;
-  }
-}
-
-/* ---------- Story ---------- */
-
-.story {
-  max-width: 560px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* ---------- Registry cards ---------- */
-
-.registry-list {
-  display: grid;
-  gap: 1.5rem;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.registry-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 1.75rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.registry-card h3 {
-  margin: 0 0 0.35rem;
-  font-style: italic;
-  color: var(--ganache);
-  font-size: 1.4rem;
-}
-
-.registry-card p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 1rem;
-  max-width: 32ch;
-}
-
-.btn {
+.link {
   display: inline-block;
-  border: 1px solid var(--ganache);
-  color: var(--ganache);
   text-decoration: none;
-  padding: 0.55rem 1.4rem;
   font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--green);
+  padding-bottom: 3px;
 }
 
-.btn:hover {
-  background: var(--ganache);
-  color: var(--paper);
-}
+.link:hover { color: var(--green-soft); border-bottom-color: var(--green-soft); }
 
-.registry-note {
-  max-width: 560px;
-  margin: 2.5rem auto 0;
+.note {
+  max-width: 520px;
+  margin: 3rem auto 0;
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--green-soft);
   font-style: italic;
-  font-size: 1rem;
 }
 
-/* ---------- FAQ accordion ---------- */
+/* ---------- FAQ ---------- */
 
 .faq-list {
-  max-width: 640px;
+  max-width: 620px;
   margin: 0 auto;
 }
 
-.faq-item {
-  border-bottom: 1px solid var(--line);
-}
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item:first-child { border-top: 1px solid var(--line); }
 
 .faq-item summary {
   cursor: pointer;
   list-style: none;
-  padding: 1.25rem 0;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: var(--ganache);
+  padding: 1.4rem 0;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
 
 .faq-item summary::after {
   content: '+';
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
-  color: var(--ink-soft);
+  color: var(--green-soft);
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
-.faq-item[open] summary::after {
-  content: '\2212'; /* minus sign */
-}
+.faq-item[open] summary::after { content: '\2212'; }
 
 .faq-item p {
-  margin: 0 0 1.5rem;
-  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+  color: var(--green-soft);
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
   text-align: center;
-  padding: 3rem 1.5rem 4rem;
-  color: var(--ink-soft);
+  padding: 2rem 1.5rem 4rem;
 }
 
-.site-footer .monogram {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 1.5rem;
-  color: var(--ganache);
-  display: block;
-  margin-bottom: 0.5rem;
+.site-footer .monogram { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 560px) {
+  .site-nav { gap: 1.6rem; }
+  .hero-meta { grid-template-columns: 1fr; gap: 2rem; }
+  .details { grid-template-columns: 1fr; gap: 2.5rem; }
+  #countdown { gap: 0.4rem 1.25rem; }
 }
