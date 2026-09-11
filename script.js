@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!el) return;
 
   // EDIT ME: your exact ceremony date and time.
-  var weddingDate = new Date('2027-05-22T14:00:00');
+  var weddingDate = new Date('2027-05-22T13:00:00');
 
   function unit(n, word) {
     return '<span>' + n + ' ' + word + (n === 1 ? '' : 's') + '</span>';
