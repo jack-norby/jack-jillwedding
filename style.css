@@ -271,6 +271,7 @@ section { padding: 0 0 4.5rem; }
   .hero-meta { grid-template-columns: 1fr; gap: 2rem; }
   .details { grid-template-columns: 1fr; gap: 2.5rem; }
   #countdown { gap: 0.4rem 1.25rem; }
+  .form-embed iframe { min-height: 1250px; }
 }
 
 /* ---------- Intro prose (homepage "Our wedding") ---------- */
@@ -350,7 +351,7 @@ section { padding: 0 0 4.5rem; }
 
 .form-embed iframe {
   width: 100%;
-  min-height: 900px;
+  min-height: 1130px;   /* tuned to the current form — see note below */
   border: 1px solid var(--line);
   background: #fff;
 }
