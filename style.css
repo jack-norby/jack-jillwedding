@@ -1,5 +1,5 @@
 /* =========================================================
-   Jack & Jill — Wedding Website Stylesheet
+   Jack & Jill Wedding Website Stylesheet
    Everything is controlled by the variables below. Change a
    color or font here once and every page follows.
    ========================================================= */
@@ -8,7 +8,7 @@
 
 :root {
   --bg:           #F7F2E9;   /* warm cream page background */
-  --ganache:      #5B3A29;   /* primary — deep ganache brown, all text */
+  --ganache:      #5B3A29;   /* primary: deep ganache brown, all text */
   --ganache-soft: #8A6247;   /* muted brown for small labels */
   --line:         #DCCDB8;   /* hairline rules */
   --script:       'Pinyon Script', cursive;
@@ -351,7 +351,7 @@ section { padding: 0 0 4.5rem; }
 
 .form-embed iframe {
   width: 100%;
-  min-height: 1130px;   /* tuned to the current form — see note below */
+  min-height: 1130px;   /* tuned to the current form, see note below */
   border: 1px solid var(--line);
   background: #fff;
 }
