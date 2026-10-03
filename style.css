@@ -120,6 +120,17 @@ a { color: inherit; }
   color: var(--ganache-soft);
 }
 
+/* vine flourish below the countdown */
+.hero::after {
+  content: "";
+  display: block;
+  width: 310px;
+  max-width: 78%;
+  height: 95px;
+  margin: clamp(2.5rem, 6vw, 3.5rem) auto 0;
+  background: url("vine-flourish.svg") center / contain no-repeat;
+}
+
 #countdown {
   margin-top: clamp(2.5rem, 6vw, 3.5rem);
   display: flex;
@@ -143,12 +154,13 @@ section { padding: 0 0 4.5rem; }
   line-height: 1.2;
 }
 
+/* vine divider under every page title */
 .rule {
-  width: 56px;
-  height: 1px;
-  background: var(--line);
+  width: 215px;
+  height: 63px;
   border: none;
-  margin: 0 auto 3rem;
+  background: url("vine-divider.svg") center / contain no-repeat;
+  margin: 0.25rem auto 2.6rem;
 }
 
 /* ---------- Details (ceremony / reception) ---------- */
@@ -263,6 +275,16 @@ section { padding: 0 0 4.5rem; }
   padding: 2rem 1.5rem 4rem;
 }
 
+.site-footer::before {
+  content: "";
+  display: block;
+  width: 185px;
+  max-width: 64%;
+  height: 54px;
+  margin: 0 auto 1.2rem;
+  background: url("vine-divider.svg") center / contain no-repeat;
+}
+
 .site-footer .monogram { font-size: clamp(1.5rem, 4vw, 2rem); }
 
 /* ---------- Small screens ---------- */
@@ -273,6 +295,8 @@ section { padding: 0 0 4.5rem; }
   .details { grid-template-columns: 1fr; gap: 2.5rem; }
   #countdown { gap: 0.4rem 1.25rem; }
   .form-embed iframe { min-height: 1250px; }
+  .rule { width: 170px; height: 50px; }
+  .hero::after { width: 240px; height: 74px; }
 }
 
 /* ---------- Intro prose (homepage "Our wedding") ---------- */
