@@ -32,262 +32,346 @@
       and wood over plastic and nonstick.
     </p>
 
-    <!--
-      HOW TO USE THIS PAGE
+    <p class="registry-howto" id="registry-howto">
+      If you buy something, please tap &ldquo;I&rsquo;m buying this&rdquo; so it
+      shows as taken and nobody doubles up. Only tap it if you&rsquo;ve actually
+      bought the gift. If you&rsquo;d rather not, text either of us and
+      we&rsquo;ll mark it off for you.
+    </p>
 
-      Add an item:      copy a <div class="gift"> block and edit the name,
-                        store, and link.
-      Mark as bought:   change class="gift" to class="gift claimed".
-                        The item greys out, the link disappears, and it
-                        shows GIVEN instead. Nothing else to change.
-      Remove an item:   delete its whole <div class="gift"> block.
+    <p class="registry-status" id="registry-status">Checking which gifts are still available&hellip;</p>
+
+    <!--
+      HOW THIS PAGE WORKS
+
+      Guests click "I'm buying this" and the item is marked GIVEN for
+      everyone, instantly. That list is stored in your Google Sheet.
+      Setup instructions are in registry-setup.txt.
+
+      Add an item:      copy a gift block and edit the name, store, link,
+                        and data-id (data-id must be unique, no spaces).
+      Remove an item:   delete its whole gift block.
+      Undo a claim:     delete that row from the Google Sheet.
+      Mark by hand:     add the word claimed, as in class="gift claimed".
     -->
 
     <h2 class="group-title">Kitchen appliances</h2>
     <div class="gift-list">
 
-      <div class="gift">
-        <span>
-          <span class="name">KitchenAid Deluxe 4.5 qt Tilt-Head Stand Mixer</span>
-          <span class="store">KitchenAid</span>
-        </span>
-        <a class="link" href="https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.deluxe-4-5-quart-tilt-head-stand-mixer.KSM97ER.html" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="kitchenaid-deluxe-4-5-qt-tilt-head-sta">
+  <span>
+    <span class="name">KitchenAid Deluxe 4.5 qt Tilt-Head Stand Mixer</span>
+    <span class="store">KitchenAid</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.deluxe-4-5-quart-tilt-head-stand-mixer.KSM97ER.html" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Ninja Crispi Pro 6-in-1 Glass Air Fryer</span>
-          <span class="store">Ninja</span>
-        </span>
-        <a class="link" href="https://www.sharkninja.com/ninja-crispi-pro-6-in-1-countertop-glass-air-fryer-bone/AS101LG.html" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="ninja-crispi-pro-6-in-1-glass-air-frye">
+  <span>
+    <span class="name">Ninja Crispi Pro 6-in-1 Glass Air Fryer</span>
+    <span class="store">Ninja</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.sharkninja.com/ninja-crispi-pro-6-in-1-countertop-glass-air-fryer-bone/AS101LG.html" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">The Beast 850 Plus Blender</span>
-          <span class="store">Target</span>
-        </span>
-        <a class="link" href="https://www.target.com/p/the-beast-850-plus-mighty-blender-sand/-/A-94612644" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="the-beast-850-plus-blender">
+  <span>
+    <span class="name">The Beast 850 Plus Blender</span>
+    <span class="store">Target</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.target.com/p/the-beast-850-plus-mighty-blender-sand/-/A-94612644" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Levoit VortexIQ Cordless Vacuum</span>
-          <span class="store">Levoit</span>
-        </span>
-        <a class="link" href="https://levoit.com/pages/vortexiq-pdp" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="levoit-vortexiq-cordless-vacuum">
+  <span>
+    <span class="name">Levoit VortexIQ Cordless Vacuum</span>
+    <span class="store">Levoit</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://levoit.com/pages/vortexiq-pdp" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
     </div>
 
     <h2 class="group-title">Cookware &amp; bakeware</h2>
     <div class="gift-list">
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Sauce Pan, Cream</span>
-          <span class="store">Caraway</span>
-        </span>
-        <a class="link" href="https://www.carawayhome.com/products/sauce-pan" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-sauce-pan-cream">
+  <span>
+    <span class="name">Caraway Sauce Pan, Cream</span>
+    <span class="store">Caraway</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.carawayhome.com/products/sauce-pan" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway 6-Piece Bakeware Set, Sage</span>
-          <span class="store">Caraway</span>
-        </span>
-        <a class="link" href="https://www.carawayhome.com/products/6pc-bakeware-set" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-6-piece-bakeware-set-sage">
+  <span>
+    <span class="name">Caraway 6-Piece Bakeware Set, Sage</span>
+    <span class="store">Caraway</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.carawayhome.com/products/6pc-bakeware-set" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Blackstone 28&quot; Omnivore Griddle with Hard Cover</span>
-          <span class="store">Blackstone</span>
-        </span>
-        <a class="link" href="https://blackstoneproducts.com/products/28-omnivore-griddle-w-hard-cover-1" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="blackstone-28-omnivore-griddle-with-ha">
+  <span>
+    <span class="name">Blackstone 28&quot; Omnivore Griddle with Hard Cover</span>
+    <span class="store">Blackstone</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://blackstoneproducts.com/products/28-omnivore-griddle-w-hard-cover-1" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Oven Mitts, Organic Cotton, Set of 2</span>
-          <span class="store">Amazon</span>
-        </span>
-        <a class="link" href="https://www.amazon.com/dp/B0C797VR6R" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-oven-mitts-organic-cotton-set">
+  <span>
+    <span class="name">Caraway Oven Mitts, Organic Cotton, Set of 2</span>
+    <span class="store">Amazon</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.amazon.com/dp/B0C797VR6R" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Pot Holders, Organic Cotton</span>
-          <span class="store">Amazon</span>
-        </span>
-        <a class="link" href="https://www.amazon.com/dp/B0C794QZPL" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-pot-holders-organic-cotton">
+  <span>
+    <span class="name">Caraway Pot Holders, Organic Cotton</span>
+    <span class="store">Amazon</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.amazon.com/dp/B0C794QZPL" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
     </div>
 
     <h2 class="group-title">Kitchen tools</h2>
     <div class="gift-list">
 
-      <div class="gift">
-        <span>
-          <span class="name">Henckels Knife Set</span>
-          <span class="store">Amazon</span>
-        </span>
-        <a class="link" href="https://www.amazon.com/dp/B08VJK4KFP" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="henckels-knife-set">
+  <span>
+    <span class="name">Henckels Knife Set</span>
+    <span class="store">Amazon</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.amazon.com/dp/B08VJK4KFP" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Maple Cutting Board</span>
-          <span class="store">Caraway</span>
-        </span>
-        <a class="link" href="https://www.carawayhome.com/products/medium-cutting-board" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-maple-cutting-board">
+  <span>
+    <span class="name">Caraway Maple Cutting Board</span>
+    <span class="store">Caraway</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.carawayhome.com/products/medium-cutting-board" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Stainless Steel Can Opener</span>
-          <span class="store">Caraway</span>
-        </span>
-        <a class="link" href="https://www.carawayhome.com/products/stainless-steel-can-opener" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-stainless-steel-can-opener">
+  <span>
+    <span class="name">Caraway Stainless Steel Can Opener</span>
+    <span class="store">Caraway</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.carawayhome.com/products/stainless-steel-can-opener" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Caraway Stainless Steel Vegetable Peeler</span>
-          <span class="store">Amazon</span>
-        </span>
-        <a class="link" href="https://www.amazon.com/dp/B0DJTYP1W6" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="caraway-stainless-steel-vegetable-peel">
+  <span>
+    <span class="name">Caraway Stainless Steel Vegetable Peeler</span>
+    <span class="store">Amazon</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.amazon.com/dp/B0DJTYP1W6" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Stainless Measuring Cups &amp; Spoons</span>
-          <span class="store">Fat Daddio's</span>
-        </span>
-        <a class="link" href="https://shop.fatdaddios.com/products/fat-daddios-stainless-steel-measuring-cups-spoons" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="stainless-measuring-cups-spoons">
+  <span>
+    <span class="name">Stainless Measuring Cups &amp; Spoons</span>
+    <span class="store">Fat Daddio's</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://shop.fatdaddios.com/products/fat-daddios-stainless-steel-measuring-cups-spoons" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Stainless Pocket Thermometer</span>
-          <span class="store">Williams Sonoma</span>
-        </span>
-        <a class="link" href="https://www.williams-sonoma.com/products/stainless-steel-pocket-thermometer/" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="stainless-pocket-thermometer">
+  <span>
+    <span class="name">Stainless Pocket Thermometer</span>
+    <span class="store">Williams Sonoma</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.williams-sonoma.com/products/stainless-steel-pocket-thermometer/" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Figmint Stainless Box Grater</span>
-          <span class="store">Target</span>
-        </span>
-        <a class="link" href="https://www.target.com/p/stainless-steel-box-grater-with-removable-bottom-container-and-lid-silver-gray-figmint-8482/-/A-87712934" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="figmint-stainless-box-grater">
+  <span>
+    <span class="name">Figmint Stainless Box Grater</span>
+    <span class="store">Target</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.target.com/p/stainless-steel-box-grater-with-removable-bottom-container-and-lid-silver-gray-figmint-8482/-/A-87712934" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Marble Rolling Pin with Base</span>
-          <span class="store">Target</span>
-        </span>
-        <a class="link" href="https://www.target.com/p/2pc-marble-rolling-pin-and-base-with-wood-handles-fox-run/-/A-80179574" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="marble-rolling-pin-with-base">
+  <span>
+    <span class="name">Marble Rolling Pin with Base</span>
+    <span class="store">Target</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.target.com/p/2pc-marble-rolling-pin-and-base-with-wood-handles-fox-run/-/A-80179574" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
     </div>
 
     <h2 class="group-title">Table &amp; drinkware</h2>
     <div class="gift-list">
 
-      <div class="gift">
-        <span>
-          <span class="name">20-Piece Stainless Silverware Set</span>
-          <span class="store">Amazon</span>
-        </span>
-        <a class="link" href="https://www.amazon.com/dp/B0FH6H84KK" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="20-piece-stainless-silverware-set">
+  <span>
+    <span class="name">20-Piece Stainless Silverware Set</span>
+    <span class="store">Amazon</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.amazon.com/dp/B0FH6H84KK" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Bink Insulated Glass Cup, Amber</span>
-          <span class="store">Bink</span>
-        </span>
-        <a class="link" href="https://binkmade.com/products/insulated-glass-cup-10oz-amber" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="bink-insulated-glass-cup-amber">
+  <span>
+    <span class="name">Bink Insulated Glass Cup, Amber</span>
+    <span class="store">Bink</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://binkmade.com/products/insulated-glass-cup-10oz-amber" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Bink Table Cups, Amber</span>
-          <span class="store">Bink</span>
-        </span>
-        <a class="link" href="https://binkmade.com/products/table-cups-amber" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="bink-table-cups-amber">
+  <span>
+    <span class="name">Bink Table Cups, Amber</span>
+    <span class="store">Bink</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://binkmade.com/products/table-cups-amber" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Bialetti Moka Pot, 6 Cup</span>
-          <span class="store">Bialetti</span>
-        </span>
-        <a class="link" href="https://www.bialetti.com/us_en/moka-pot-3-cup-6-cup-italian-stovetop-1.html" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="bialetti-moka-pot-6-cup">
+  <span>
+    <span class="name">Bialetti Moka Pot, 6 Cup</span>
+    <span class="store">Bialetti</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.bialetti.com/us_en/moka-pot-3-cup-6-cup-italian-stovetop-1.html" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
     </div>
 
     <h2 class="group-title">Home &amp; tools</h2>
     <div class="gift-list">
 
-      <div class="gift">
-        <span>
-          <span class="name">Wool Dish Drying Mat</span>
-          <span class="store">Sonoma Wool Company</span>
-        </span>
-        <a class="link" href="https://sonomawoolcompany.com/products/wool-dish-drying-mat" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="wool-dish-drying-mat">
+  <span>
+    <span class="name">Wool Dish Drying Mat</span>
+    <span class="store">Sonoma Wool Company</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://sonomawoolcompany.com/products/wool-dish-drying-mat" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Stainless Paper Towel Holder</span>
-          <span class="store">Walmart</span>
-        </span>
-        <a class="link" href="https://www.walmart.com/ip/Kitchen-Details-Paper-Towel-Holder-with-Weighted-Base-Stainless-Steel/488503880" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="stainless-paper-towel-holder">
+  <span>
+    <span class="name">Stainless Paper Towel Holder</span>
+    <span class="store">Walmart</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.walmart.com/ip/Kitchen-Details-Paper-Towel-Holder-with-Weighted-Base-Stainless-Steel/488503880" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
-      <div class="gift">
-        <span>
-          <span class="name">Milwaukee M18 Drill &amp; Impact Driver Combo Kit</span>
-          <span class="store">Home Depot</span>
-        </span>
-        <a class="link" href="https://www.homedepot.com/pep/325403100" target="_blank" rel="noopener">View</a>
-        <span class="given">Given</span>
-      </div>
+<div class="gift" data-id="milwaukee-m18-drill-impact-driver-comb">
+  <span>
+    <span class="name">Milwaukee M18 Drill &amp; Impact Driver Combo Kit</span>
+    <span class="store">Home Depot</span>
+  </span>
+  <span class="gift-actions">
+    <a class="link" href="https://www.homedepot.com/pep/325403100" target="_blank" rel="noopener">View</a>
+    <button class="claim" type="button">I&rsquo;m buying this</button>
+  </span>
+  <span class="given">Given</span>
+</div>
 
     </div>
 
     <p class="note">
-      If you buy something, please send either of us a quick text so we can
-      cross it off and nobody doubles up. Our numbers are on the
-      <a href="faqs.html">FAQs page</a>.
+      Tapped something by mistake, or changed your mind? Just text either of
+      us and we&rsquo;ll put it back on the list, no awkwardness at all. Our
+      numbers are on the <a href="faqs.html">FAQs page</a>.
     </p>
   </div>
 </section>
@@ -297,5 +381,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="registry.js"></script>
 </body>
 </html>

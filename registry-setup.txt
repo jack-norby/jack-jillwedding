@@ -1,0 +1,112 @@
+===========================================================
+LIVE REGISTRY CHECK-OFF — SETUP (about 10 minutes, one time)
+===========================================================
+
+This lets guests click "I'm buying this" on your registry page.
+The item greys out and shows GIVEN for everyone who visits.
+Claims are stored in a Google Sheet you own. Free, no accounts
+needed by guests.
+
+-----------------------------------------------------------
+STEP 1 — Make the spreadsheet
+-----------------------------------------------------------
+1. Go to sheets.google.com and create a blank spreadsheet.
+2. Name it something like "Wedding Registry Claims".
+
+-----------------------------------------------------------
+STEP 2 — Add the script
+-----------------------------------------------------------
+3. In that sheet: Extensions > Apps Script.
+4. Delete whatever code is in the editor.
+5. Paste in everything between the lines below.
+6. Click the save icon.
+
+------------------ COPY FROM HERE -------------------------
+
+var SHEET_NAME = 'Claims';
+
+function doGet(e) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow(['itemId', 'claimedAt']);
+  }
+
+  var action = (e && e.parameter && e.parameter.action) || 'list';
+
+  if (action === 'claim' && e.parameter.id) {
+    var already = sheet.getDataRange().getValues().map(function (row) {
+      return String(row[0]);
+    });
+    if (already.indexOf(String(e.parameter.id)) === -1) {
+      sheet.appendRow([e.parameter.id, new Date()]);
+    }
+  }
+
+  var ids = sheet.getDataRange().getValues()
+    .map(function (row) { return String(row[0]); })
+    .filter(function (v) { return v && v !== 'itemId'; });
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ claimed: ids }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+------------------- COPY TO HERE --------------------------
+
+-----------------------------------------------------------
+STEP 3 — Publish it
+-----------------------------------------------------------
+7.  Click Deploy > New deployment.
+8.  Click the gear icon next to "Select type" and choose Web app.
+9.  Description: anything, e.g. "registry".
+10. Execute as: Me
+11. Who has access: ANYONE          <-- this one matters
+12. Click Deploy.
+13. Google will ask you to authorize. Click through it. You may
+    see "Google hasn't verified this app" — click Advanced, then
+    "Go to ... (unsafe)". It is your own script; this is normal.
+14. Copy the Web app URL. It ends in /exec.
+
+-----------------------------------------------------------
+STEP 4 — Connect it to your site
+-----------------------------------------------------------
+15. Open registry.js.
+16. Find this line near the top:
+
+        var REGISTRY_API = '';
+
+17. Paste your URL between the quotes:
+
+        var REGISTRY_API = 'https://script.google.com/macros/s/AAAA.../exec';
+
+18. Upload registry.js, registry.html, and style.css to GitHub.
+19. Hard-refresh the page with Cmd+Shift+R.
+
+-----------------------------------------------------------
+HOW TO USE IT
+-----------------------------------------------------------
+- Items guests claim appear as rows in the Claims tab of the sheet.
+- To UNDO a claim, delete that row. The page updates on next load.
+- To mark something off yourself without the sheet, edit
+  registry.html and change class="gift" to class="gift claimed".
+
+-----------------------------------------------------------
+IF SOMETHING GOES WRONG
+-----------------------------------------------------------
+- Buttons don't appear at all:
+    REGISTRY_API is still empty, or registry.js didn't upload.
+- "We couldn't load which gifts are taken":
+    Step 11 was not set to ANYONE, or the URL is wrong. Redeploy
+    and copy the /exec URL again.
+- You changed the script later:
+    Deploy > Manage deployments > edit (pencil) > Version: New
+    version > Deploy. Editing code alone does not republish it.
+
+-----------------------------------------------------------
+WORTH KNOWING
+-----------------------------------------------------------
+Anyone with your registry link can mark items as taken. There is
+no password. For a wedding registry that is normally fine, and
+you can always undo a claim by deleting its row in the sheet.

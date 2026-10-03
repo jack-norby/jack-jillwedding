@@ -430,3 +430,52 @@ section { padding: 0 0 4.5rem; }
     gap: 0.6rem;
   }
 }
+
+/* ---------- Registry: live check-off ---------- */
+
+.registry-status {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ganache-soft);
+  font-style: italic;
+  margin: 0 0 2.5rem;
+  min-height: 1.5rem;
+}
+
+.gift-actions {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.claim {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 3px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.claim:hover {
+  color: var(--ganache);
+  border-bottom-color: var(--ganache);
+}
+
+.claim[disabled] { cursor: default; opacity: 0.6; }
+
+.gift.claimed .gift-actions { display: none; }
+
+.registry-howto {
+  max-width: 34em;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ganache-soft);
+}
