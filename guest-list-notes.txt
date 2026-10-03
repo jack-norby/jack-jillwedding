@@ -1,0 +1,83 @@
+GUEST LIST — WHAT I GUESSED, WHAT YOU NEED TO FIX
+=================================================
+
+70 households, 135 people. Paste guest-list-draft.tsv into the
+Guests tab (click cell A1, then Cmd+V — it splits into columns
+automatically).
+
+I grouped people by surname and by the order you listed them,
+since couples were mostly adjacent. Everything below is a guess
+you should check.
+
+-------------------------------------------------------------
+NOT PLACED — tell me where these go
+-------------------------------------------------------------
+Sarah H (MOH)            no surname given
+Logan Grove              ring bearer - which Grove household?
+Casey Grove              ring bearer - which Grove household?
+Lydia Grove              flower girl - which Grove household?
+
+VENDORS - probably should NOT be RSVP households. Left out:
+Evan Peterson + Friend   photography
+Candi                    day-of coordinator
+Kendra Bliss             coordinator assistant
+
+(Allyson Groner, Tara Vos and Lindzy Bjork ARE included, since
+they look like family or friends helping out rather than hired
+vendors. Remove them if that's wrong.)
+
+-------------------------------------------------------------
+SPELLING — you have three versions of one name
+-------------------------------------------------------------
+Henrickson    Leesha, Brittany, DJ
+Hendrickson   Sean, Krista
+Hentrickson   Maverick
+
+I kept them as three separate households and assumed Maverick
+belongs with Brittany & DJ. Fix the spellings so guests can
+actually find themselves.
+
+Also: "Megan Kynch" is almost certainly Megan Lynch. I put her
+in the Lynch household.
+
+-------------------------------------------------------------
+SURNAMES WITH MULTIPLE HOUSEHOLDS — check these splits
+-------------------------------------------------------------
+Norby       Andrew & Shauna (+Lila, Etta)  |  Jane & Chuck
+Zuckerman   Tanya & Ray  |  Sam  |  Dave
+Hillier     Linda & Norm  |  Rachel
+Grove       Steve & Emily  |  Billy & Hayley (+Beau)  |  Matt  |  Nate
+Porter      Esther & Jim (+Shale, Margot)  |  Joan
+Prunty      Laurence & Lauren  |  Matthew & Katie (+Colten)  |  Sam
+Groner      Parker  |  Pierce  |  Allyson
+Bjork       Jason (+Drew, Ela, Addy)  |  Lindzy
+
+Anyone living with someone else should be merged into one row.
+Anyone I lumped together who lives apart should be split out.
+
+-------------------------------------------------------------
+CHILDREN I ASSIGNED BY SURNAME ONLY
+-------------------------------------------------------------
+Beau Grove       -> Billy & Hayley
+Shale Porter     -> Esther & Jim
+Margot Porter    -> Esther & Jim
+Maverick         -> Brittany & DJ
+Ellis Beck       -> Josh & Adriana
+Jack, Noah, Waylon, Myles Biermeier -> Nick & Taylor
+Baby Lynch       -> Ryan & Megan
+Arianna Hernandez -> Raul
+
+-------------------------------------------------------------
+HOW LOOKUP WORKS, SO YOU CAN NAME THINGS WELL
+-------------------------------------------------------------
+A guest finds their household by typing EITHER:
+  - the Household label exactly, e.g. "Vos", or
+  - any first name in the Members list exactly, e.g. "Tara"
+
+Labels like "Norby (Andrew & Shauna)" still work when someone
+types just "Norby" - they'll see a small picker listing both
+Norby households and choose theirs. That is why the labels need
+to be distinguishable to a guest.
+
+"Fast Eddie" has no surname, so he is his own household and
+finds himself by typing "Fast Eddie".
