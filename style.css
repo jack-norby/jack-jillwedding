@@ -375,3 +375,58 @@ section { padding: 0 0 4.5rem; }
   color: var(--ganache);
   margin-top: 0.75rem;
 }
+
+/* ---------- Registry gift list ---------- */
+
+.gift-list {
+  max-width: 620px;
+  margin: 0 auto 1rem;
+}
+
+.gift {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.gift:first-child { border-top: 1px solid var(--line); }
+
+.gift .name { display: block; }
+
+.gift .store {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+  margin-top: 0.1rem;
+}
+
+.gift .link,
+.gift .given { flex-shrink: 0; }
+
+.gift .given {
+  display: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+}
+
+/* Add class="gift claimed" to an item once someone has bought it. */
+.gift.claimed { opacity: 0.55; }
+.gift.claimed .name { text-decoration: line-through; }
+.gift.claimed .link { display: none; }
+.gift.claimed .given { display: inline; }
+
+@media (max-width: 560px) {
+  .gift {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
