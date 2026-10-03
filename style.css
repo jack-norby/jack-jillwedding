@@ -298,6 +298,7 @@ section { padding: 0 0 4.5rem; }
   text-align: center;
 }
 
+.stack-item:first-child { border-top: none; }
 .stack-item:last-child { border-bottom: 1px solid var(--line); }
 
 .stack-item h3 {
