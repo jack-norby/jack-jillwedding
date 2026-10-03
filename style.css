@@ -65,7 +65,7 @@ a { color: inherit; }
   margin: 0.6rem 0 0;
   /* vine divider sits in this padding, between the monogram and the links */
   padding: 60px 0 0;
-  background: url("vine-divider.svg") top center / 205px auto no-repeat;
+  background: url("vine-divider.svg?v=2") top center / 205px auto no-repeat;
 }
 
 .site-nav a {
@@ -272,7 +272,7 @@ section { padding: 0 0 4.5rem; }
   max-width: 64%;
   height: 54px;
   margin: 0 auto 1.2rem;
-  background: url("vine-divider.svg") center / contain no-repeat;
+  background: url("vine-divider.svg?v=2") center / contain no-repeat;
 }
 
 .site-footer .monogram { font-size: clamp(1.5rem, 4vw, 2rem); }
@@ -280,7 +280,14 @@ section { padding: 0 0 4.5rem; }
 /* ---------- Small screens ---------- */
 
 @media (max-width: 560px) {
-  .site-nav { gap: 1.6rem; }
+  /* 6 links wrap unevenly on a phone, so lay them out 3 + 3 */
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem 1.5rem;
+  }
   .hero-meta { grid-template-columns: 1fr; gap: 2rem; }
   .details { grid-template-columns: 1fr; gap: 2.5rem; }
   #countdown { gap: 0.4rem 1.25rem; }
