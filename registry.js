@@ -8,7 +8,7 @@
    "I'm buying this" buttons are hidden and nothing breaks.
    --------------------------------------------------------------- */
 
-var REGISTRY_API = '';
+var REGISTRY_API = 'https://script.google.com/macros/s/AKfycbyWycybuWzeJcI4qHDTA_q6ti5lpYczHswZC6DSnmbvrK0XEkorj_2Y4WVUS6ZFB5P-/exec';
 
 document.addEventListener('DOMContentLoaded', function () {
   var page = document.querySelector('.gift-list');
