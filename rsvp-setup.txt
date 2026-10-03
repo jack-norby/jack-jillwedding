@@ -1,0 +1,196 @@
+=================================================================
+RSVP GUEST LOOKUP — SETUP
+=================================================================
+
+This replaces your Google Form. Guests type their last name, and
+only THEIR household appears. Nobody sees anyone else's names, and
+someone who isn't on your list can't submit.
+
+It uses the SAME spreadsheet and the SAME Apps Script URL you
+already set up for the registry. You are just adding to it.
+
+-----------------------------------------------------------------
+STEP 1 — Add a "Guests" tab to your spreadsheet
+-----------------------------------------------------------------
+Open "Wedding Registry Claims". At the bottom, click + to add a
+sheet and name it exactly:   Guests
+
+Put these two headers in row 1:
+
+    A1: Household          B1: Members
+
+Then one row per invited household. Column B is first names
+separated by commas:
+
+    Household        | Members
+    -----------------|-------------------------------------------
+    Norby            | Andrew, Shauna, Lila, Etta
+    Zuckerman        | Tanya, Ray Guban
+    Vos              | Jordan, Tara, Jonah, Brenlie, Audrey
+
+NAMING TIP: if two households share a last name, make the
+Household labels different so guests can tell them apart, e.g.
+"Smith (Jordan & Tara)" and "Smith (Mike & Ann)". Guests can
+search by last name OR by any first name in the row.
+
+-----------------------------------------------------------------
+STEP 2 — Replace your Apps Script code
+-----------------------------------------------------------------
+In the spreadsheet: Extensions > Apps Script.
+Select all the code (Cmd+A), delete it, and paste the code from
+the section at the bottom of this file.
+
+Save, then run testMe. You should see two lines, both ok:true.
+
+-----------------------------------------------------------------
+STEP 3 — Redeploy
+-----------------------------------------------------------------
+Deploy > Manage deployments > pencil icon
+  Version:         New version      <-- REQUIRED
+  Who has access:  Anyone
+Deploy.
+
+The URL does not change, so nothing else needs editing.
+
+-----------------------------------------------------------------
+STEP 4 — Upload to GitHub
+-----------------------------------------------------------------
+rsvp.html, rsvp.js, style.css
+
+-----------------------------------------------------------------
+WHERE RSVPs GO
+-----------------------------------------------------------------
+A tab called "RSVPs" is created automatically on the first reply.
+One row per person:
+
+    Household | Guest | Attending | Email | Note | Submitted
+
+If a family submits twice, you get both sets of rows. The latest
+timestamp is the one to trust.
+
+-----------------------------------------------------------------
+ONE HONEST LIMITATION
+-----------------------------------------------------------------
+Someone could guess at common last names and see whether that
+household is invited. There is no password. This is exactly how
+Zola and The Knot work too, and for a wedding it is normal. If
+you want it tighter, put a short code on each invitation and use
+that as the Household value instead of a surname.
+
+=================================================================
+THE CODE — paste all of this into Apps Script
+=================================================================
+
+var SHEET_ID = '';
+var CLAIMS_SHEET = 'Claims';
+var GUESTS_SHEET = 'Guests';
+var RSVP_SHEET   = 'RSVPs';
+
+function ss_() {
+  var ss = SHEET_ID
+    ? SpreadsheetApp.openById(SHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('No spreadsheet found.');
+  return ss;
+}
+
+function sheet_(name, headers) {
+  var s = ss_().getSheetByName(name);
+  if (!s) {
+    s = ss_().insertSheet(name);
+    if (headers) s.appendRow(headers);
+  }
+  return s;
+}
+
+function doGet(e) {
+  try {
+    var p = (e && e.parameter) || {};
+    var action = p.action || 'list';
+    if (action === 'list' || action === 'claim') return registry_(action, p);
+    if (action === 'lookup') return lookup_(p);
+    if (action === 'rsvp')   return rsvp_(p);
+    return json_({ ok: false, error: 'Unknown action: ' + action });
+  } catch (err) {
+    return json_({ ok: false, error: String(err) });
+  }
+}
+
+function registry_(action, p) {
+  var s = sheet_(CLAIMS_SHEET, ['itemId', 'claimedAt']);
+  if (action === 'claim' && p.id) {
+    var already = s.getDataRange().getValues().map(function (r) { return String(r[0]); });
+    if (already.indexOf(String(p.id)) === -1) s.appendRow([p.id, new Date()]);
+  }
+  var ids = s.getDataRange().getValues()
+    .map(function (r) { return String(r[0]); })
+    .filter(function (v) { return v && v !== 'itemId'; });
+  return json_({ ok: true, claimed: ids });
+}
+
+function lookup_(p) {
+  var q = String(p.name || '').trim().toLowerCase();
+  if (q.length < 2) return json_({ ok: true, matches: [] });
+
+  var rows = sheet_(GUESTS_SHEET, ['Household', 'Members']).getDataRange().getValues();
+  var exact = [], partial = [];
+
+  for (var i = 1; i < rows.length; i++) {
+    var household = String(rows[i][0] || '').trim();
+    if (!household) continue;
+
+    var members = String(rows[i][1] || '')
+      .split(',')
+      .map(function (x) { return x.trim(); })
+      .filter(String);
+
+    var rec = { household: household, members: members };
+    var hl = household.toLowerCase();
+
+    var memberHit = members.some(function (m) {
+      return m.toLowerCase() === q;
+    });
+
+    if (hl === q || memberHit) exact.push(rec);
+    else if (hl.indexOf(q) === 0) partial.push(rec);
+  }
+
+  return json_({ ok: true, matches: exact.length ? exact : partial });
+}
+
+function rsvp_(p) {
+  var household = String(p.household || '').trim();
+  if (!household) return json_({ ok: false, error: 'Missing household' });
+
+  var people = [];
+  try { people = JSON.parse(p.people || '[]'); } catch (err) { people = []; }
+  if (!people.length) return json_({ ok: false, error: 'No guests submitted' });
+
+  var s = sheet_(RSVP_SHEET, ['Household', 'Guest', 'Attending', 'Email', 'Note', 'Submitted']);
+  var now = new Date();
+  var email = String(p.email || '').trim();
+  var note  = String(p.note  || '').trim();
+
+  people.forEach(function (person) {
+    s.appendRow([
+      household,
+      String(person.name || ''),
+      person.attending ? 'Yes' : 'No',
+      email,
+      note,
+      now
+    ]);
+  });
+
+  return json_({ ok: true, saved: people.length });
+}
+
+function json_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function testMe() {
+  Logger.log(doGet({ parameter: { action: 'list' } }).getContent());
+  Logger.log(doGet({ parameter: { action: 'lookup', name: 'norby' } }).getContent());
+}

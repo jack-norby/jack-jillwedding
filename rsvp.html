@@ -26,28 +26,65 @@
 
   <div class="wrap">
     <p class="lead">
-      Please let us know if you can join us. If your invitation included
-      guests, respond for everyone in your party.
+      Please look up your invitation below and let us know who will be
+      joining us.
       <span class="deadline">Kindly reply by [EDIT ME: date]</span>
     </p>
 
-    <div class="form-embed">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfHEETN3YgnnpJzQaNqZhnhbpJyIrt-TPd7Me_QWh5Fuh3JGg/viewform?embedded=true"
-        title="Wedding RSVP form"
-        loading="lazy">
-        Loading&hellip;
-      </iframe>
+    <!--
+      This form reads your guest list from the Guests tab of your
+      Google Sheet. Setup is in rsvp-setup.txt.
+    -->
 
-      <p class="form-fallback">
-        Form not loading?
-        <a class="link" href="https://forms.gle/ShdurgS4ybWJM2kP9" target="_blank" rel="noopener">Open it in a new tab</a>
-      </p>
+    <div class="rsvp">
+
+      <!-- STEP 1: find your invitation -->
+      <form class="rsvp-step" id="rsvp-find">
+        <label class="field-label" for="rsvp-name">Your last name</label>
+        <input class="field" type="text" id="rsvp-name" autocomplete="family-name"
+               placeholder="As it appears on your invitation" required>
+        <button class="btn-primary" type="submit">Find my invitation</button>
+        <p class="rsvp-msg" id="rsvp-find-msg"></p>
+      </form>
+
+      <!-- STEP 1b: more than one household matched -->
+      <div class="rsvp-step" id="rsvp-choose" hidden>
+        <p class="rsvp-prompt">We found a few. Which one is yours?</p>
+        <div id="rsvp-choices"></div>
+        <button class="btn-quiet" type="button" data-restart>Start over</button>
+      </div>
+
+      <!-- STEP 2: who is coming -->
+      <form class="rsvp-step" id="rsvp-form" hidden>
+        <p class="rsvp-prompt" id="rsvp-household"></p>
+
+        <div id="rsvp-people"></div>
+
+        <label class="field-label" for="rsvp-email">Email address</label>
+        <input class="field" type="email" id="rsvp-email"
+               placeholder="So we can reach you if anything changes">
+
+        <label class="field-label" for="rsvp-note">Anything we should know? (optional)</label>
+        <textarea class="field" id="rsvp-note" rows="3"
+                  placeholder="Dietary needs, questions, a note for us"></textarea>
+
+        <button class="btn-primary" type="submit">Send our RSVP</button>
+        <button class="btn-quiet" type="button" data-restart>That&rsquo;s not us</button>
+        <p class="rsvp-msg" id="rsvp-form-msg"></p>
+      </form>
+
+      <!-- STEP 3: done -->
+      <div class="rsvp-step rsvp-done" id="rsvp-done" hidden>
+        <p class="rsvp-thanks">Thank you!</p>
+        <p id="rsvp-done-msg"></p>
+        <button class="btn-quiet" type="button" data-restart>Submit another RSVP</button>
+      </div>
+
     </div>
 
     <p class="note">
-      Having trouble? Text either of us and we'll add you ourselves.
-      [EDIT ME: your contact info].
+      Trouble finding your name? Text either of us and we&rsquo;ll get you
+      sorted. Our numbers are on the <a href="faqs.html">FAQs page</a>.
     </p>
   </div>
 </section>
@@ -57,5 +94,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="rsvp.js"></script>
 </body>
 </html>

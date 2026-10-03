@@ -479,3 +479,127 @@ section { padding: 0 0 4.5rem; }
   font-size: 0.95rem;
   color: var(--ganache-soft);
 }
+
+/* ---------- RSVP lookup form ---------- */
+
+.rsvp {
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.field {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ganache);
+  background: #FFFDF8;
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.85rem;
+  text-align: center;
+}
+
+textarea.field { text-align: left; resize: vertical; }
+
+.field:focus {
+  outline: none;
+  border-color: var(--ganache-soft);
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--ganache);
+  border: 1px solid var(--ganache);
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--ganache-soft); border-color: var(--ganache-soft); }
+.btn-primary[disabled] { opacity: 0.6; cursor: default; }
+
+.btn-quiet,
+.btn-choice {
+  display: block;
+  margin: 1rem auto 0;
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ganache-soft);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 3px;
+  cursor: pointer;
+}
+
+.btn-quiet:hover,
+.btn-choice:hover { color: var(--ganache); border-bottom-color: var(--ganache); }
+
+.btn-choice {
+  font-size: 1.1rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin: 1.1rem auto;
+}
+
+.rsvp-prompt {
+  margin: 0 0 1.5rem;
+  color: var(--ganache-soft);
+}
+
+.rsvp-msg {
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ganache-soft);
+  min-height: 1.4rem;
+}
+
+.person {
+  border-top: 1px solid var(--line);
+  padding: 1.1rem 0;
+  text-align: left;
+}
+
+.person:last-of-type { border-bottom: 1px solid var(--line); }
+
+.person-name {
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.person-choice label {
+  display: inline-block;
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ganache-soft);
+  cursor: pointer;
+}
+
+.person-choice input { margin-right: 0.35rem; accent-color: var(--ganache); }
+
+.rsvp-thanks {
+  font-family: var(--script);
+  font-size: 2.4rem;
+  margin: 0 0 0.5rem;
+}
+
+@media (max-width: 560px) {
+  .person-choice label { display: block; margin: 0 0 0.35rem; }
+}
