@@ -653,6 +653,9 @@ textarea.field { text-align: left; resize: vertical; }
   height: 100%;
   object-fit: cover;
   object-position: 58% center;
+  /* warms the black and white so it sits with the cream.
+     Dial the sepia value: 0.45 subtle, 0.72 current, 1 full. */
+  filter: sepia(0.72) saturate(1.1) contrast(0.94) brightness(1.03);
 }
 
 /* cream wash so the names stay readable over the photos */
