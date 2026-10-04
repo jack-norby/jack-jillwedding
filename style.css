@@ -697,3 +697,8 @@ textarea.field { text-align: left; resize: vertical; }
 .hero #countdown {
   color: var(--ganache);
 }
+
+@media (max-width: 560px) {
+  /* shift the crop left so both of them are in frame on a phone */
+  .hero-photos img { object-position: 44% center; }
+}
