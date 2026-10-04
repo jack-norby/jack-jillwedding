@@ -655,6 +655,9 @@ textarea.field { text-align: left; resize: vertical; }
 .hero-photos {
   position: absolute;
   inset: 0;
+  /* dissolves the bottom edge into the cream instead of cutting it off */
+  -webkit-mask-image: linear-gradient(to bottom, #000 44%, rgba(0, 0, 0, 0.72) 66%, rgba(0, 0, 0, 0.32) 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 44%, rgba(0, 0, 0, 0.72) 66%, rgba(0, 0, 0, 0.32) 85%, transparent 100%);
 }
 
 .hero-photos img {
@@ -679,7 +682,7 @@ textarea.field { text-align: left; resize: vertical; }
     rgba(247, 242, 233, 0.46) 14%,
     rgba(247, 242, 233, 0.42) 26%,
     rgba(247, 242, 233, 0.44) 50%,
-    rgba(247, 242, 233, 0.74) 100%
+    rgba(247, 242, 233, 0.56) 100%
   );
 }
 
