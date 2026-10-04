@@ -645,8 +645,6 @@ textarea.field { text-align: left; resize: vertical; }
 .hero-photos {
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .hero-photos img {
@@ -654,6 +652,7 @@ textarea.field { text-align: left; resize: vertical; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 58% center;
 }
 
 /* cream wash so the names stay readable over the photos */
@@ -661,7 +660,12 @@ textarea.field { text-align: left; resize: vertical; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(247, 242, 233, 0.74);
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 242, 233, 0.40) 0%,
+    rgba(247, 242, 233, 0.44) 38%,
+    rgba(247, 242, 233, 0.74) 100%
+  );
 }
 
 .hero-inner {
@@ -669,11 +673,6 @@ textarea.field { text-align: left; resize: vertical; }
   z-index: 1;
 }
 
-@media (max-width: 560px) {
-  /* one photo full width on a phone; two halves crop too narrow */
-  .hero-photos { grid-template-columns: 1fr; }
-  .hero-photos img:last-child { display: none; }
-}
 
 /* the muted greys are too faint over photographs */
 .hero .hero-meta .small,
