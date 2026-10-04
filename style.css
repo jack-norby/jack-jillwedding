@@ -629,3 +629,31 @@ textarea.field { text-align: left; resize: vertical; }
 @media (max-width: 560px) {
   .person-choice label { display: block; margin: 0 0 0.35rem; }
 }
+
+/* ---------- Photo pair on the home page ---------- */
+
+.photos { padding: 0 0 1rem; }
+
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.photo-pair img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .photo-pair {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 420px;
+  }
+}
