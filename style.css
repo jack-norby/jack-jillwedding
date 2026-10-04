@@ -630,30 +630,53 @@ textarea.field { text-align: left; resize: vertical; }
   .person-choice label { display: block; margin: 0 0 0.35rem; }
 }
 
-/* ---------- Photo pair on the home page ---------- */
 
-.photos { padding: 0 0 1rem; }
 
-.photo-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.1rem;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+
+/* ---------- Home hero: photos behind the names ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 13vw, 9rem) 1.5rem clamp(4rem, 9vw, 6.5rem);
 }
 
-.photo-pair img {
+/* the two photos, split evenly behind everything */
+.hero-photos {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hero-photos img {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  height: 100%;
   object-fit: cover;
 }
 
+/* cream wash so the names stay readable over the photos */
+.hero-photos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 242, 233, 0.74);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 560px) {
-  .photo-pair {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 420px;
-  }
+  /* one photo full width on a phone; two halves crop too narrow */
+  .hero-photos { grid-template-columns: 1fr; }
+  .hero-photos img:last-child { display: none; }
+}
+
+/* the muted greys are too faint over photographs */
+.hero .hero-meta .small,
+.hero #countdown {
+  color: var(--ganache);
 }
