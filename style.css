@@ -635,10 +635,20 @@ textarea.field { text-align: left; resize: vertical; }
 
 /* ---------- Home hero: photos behind the names ---------- */
 
-.hero {
+/* the photo spans the header and the hero, so there is no seam */
+.hero-block {
   position: relative;
   overflow: hidden;
-  padding: clamp(5rem, 13vw, 9rem) 1.5rem clamp(4rem, 9vw, 6.5rem);
+}
+
+.hero-block .site-head,
+.hero-block .hero {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding: clamp(2rem, 6vw, 4rem) 1.5rem clamp(4rem, 9vw, 6.5rem);
 }
 
 /* the two photos, split evenly behind everything */
@@ -665,8 +675,10 @@ textarea.field { text-align: left; resize: vertical; }
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(247, 242, 233, 0.40) 0%,
-    rgba(247, 242, 233, 0.44) 38%,
+    rgba(247, 242, 233, 0.80) 0%,
+    rgba(247, 242, 233, 0.62) 12%,
+    rgba(247, 242, 233, 0.42) 26%,
+    rgba(247, 242, 233, 0.44) 50%,
     rgba(247, 242, 233, 0.74) 100%
   );
 }
