@@ -702,3 +702,35 @@ textarea.field { text-align: left; resize: vertical; }
   /* shift the crop left so both of them are in frame on a phone */
   .hero-photos img { object-position: 44% center; }
 }
+
+/* ---------- Gallery ---------- */
+
+.gallery {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
+@media (max-width: 860px) {
+  .gallery { columns: 2; }
+}
+
+@media (max-width: 560px) {
+  /* two across on a phone: 54 photos in one column is a very long scroll */
+  .gallery { columns: 2; column-gap: 0.6rem; padding: 0 1rem; }
+  .gallery img { margin-bottom: 0.6rem; }
+  /* seven links now, so lay them out 4 + 3 */
+  .site-nav {
+    grid-template-columns: repeat(4, auto);
+    gap: 0.9rem 1.1rem;
+  }
+}
