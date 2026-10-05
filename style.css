@@ -68,6 +68,8 @@ a { color: inherit; }
   background: url("vine-divider.svg?v=2") top center / 205px auto no-repeat;
 }
 
+.nav-break { display: none; }
+
 .site-nav a {
   text-decoration: none;
   font-size: 1rem;
@@ -280,13 +282,13 @@ section { padding: 0 0 4.5rem; }
 /* ---------- Small screens ---------- */
 
 @media (max-width: 560px) {
-  /* 6 links wrap unevenly on a phone, so lay them out 3 + 3 */
-  .site-nav {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: center;
-    justify-items: center;
-    gap: 1rem 1.5rem;
+  /* seven links: break after Gallery so both rows stay centred */
+  .site-nav { gap: 0.95rem 1.4rem; }
+  .nav-break {
+    display: block;
+    flex-basis: 100%;
+    height: 0;
+    margin: 0;
   }
   .hero-meta { grid-template-columns: 1fr; gap: 2rem; }
   .details { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -728,9 +730,4 @@ textarea.field { text-align: left; resize: vertical; }
   /* two across on a phone: 54 photos in one column is a very long scroll */
   .gallery { columns: 2; column-gap: 0.6rem; padding: 0 1rem; }
   .gallery img { margin-bottom: 0.6rem; }
-  /* seven links now, so lay them out 4 + 3 */
-  .site-nav {
-    grid-template-columns: repeat(4, auto);
-    gap: 0.9rem 1.1rem;
-  }
 }
