@@ -718,6 +718,9 @@ textarea.field { text-align: left; resize: vertical; }
 .gallery img {
   display: block;
   width: 100%;
+  /* width/height attributes on each img give the browser the aspect ratio
+     up front, so the columns do not reshuffle as photos load */
+  height: auto;
   margin: 0 0 1rem;
   break-inside: avoid;
 }
