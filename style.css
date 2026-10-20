@@ -734,3 +734,16 @@ textarea.field { text-align: left; resize: vertical; }
   .gallery { columns: 2; column-gap: 0.6rem; padding: 0 1rem; }
   .gallery img { margin-bottom: 0.6rem; }
 }
+
+/* ---------- Honeymoon fund ---------- */
+
+.fund {
+  max-width: 34em;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.fund p {
+  margin: 0 0 1.4rem;
+  color: var(--ganache-soft);
+}
