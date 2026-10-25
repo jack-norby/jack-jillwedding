@@ -1,0 +1,81 @@
+=================================================================
+HONEYMOON FUND PROGRESS BAR — SETUP (about 5 minutes, one time)
+=================================================================
+
+The registry page can show "$1,200 of $5,000 so far" with a thin
+progress bar under the Honeymoon fund.
+
+The numbers live in your Google Sheet, so you update them from
+your phone in a few seconds. No re-uploading files.
+
+Until you do this, nothing breaks. The progress bar simply stays
+hidden and the Venmo link works as normal.
+
+-----------------------------------------------------------------
+STEP 1 — Add a "Funds" tab
+-----------------------------------------------------------------
+In "Wedding Registry Claims", click + at the bottom to add a sheet
+and name it exactly:   Funds
+
+Put these headers in row 1, and your honeymoon row underneath:
+
+        A          B        C
+  1   key        goal     raised
+  2   honeymoon  5000     0
+
+Set the goal to whatever you want. Update "raised" as money comes
+in. Plain numbers, no dollar signs.
+
+-----------------------------------------------------------------
+STEP 2 — Add one function to your Apps Script
+-----------------------------------------------------------------
+Extensions > Apps Script.
+
+(a) Near the top, under the other SHEET names, add this line:
+
+var FUNDS_SHEET = 'Funds';
+
+(b) In doGet, find this line:
+
+    if (action === 'rsvp')   return rsvp_(p);
+
+   and add this line directly beneath it:
+
+    if (action === 'funds')  return funds_();
+
+(c) Paste this function at the bottom of the file:
+
+function funds_() {
+  var s = sheet_(FUNDS_SHEET, ['key', 'goal', 'raised']);
+  var rows = s.getDataRange().getValues();
+  var out = {};
+  for (var i = 1; i < rows.length; i++) {
+    var key = String(rows[i][0] || '').trim();
+    if (!key) continue;
+    out[key] = {
+      goal: Number(rows[i][1]) || 0,
+      raised: Number(rows[i][2]) || 0
+    };
+  }
+  return json_({ ok: true, funds: out });
+}
+
+Save.
+
+-----------------------------------------------------------------
+STEP 3 — Redeploy
+-----------------------------------------------------------------
+Deploy > Manage deployments > pencil icon
+  Version:         New version      <-- REQUIRED
+  Who has access:  Anyone
+Deploy.
+
+The URL does not change.
+
+-----------------------------------------------------------------
+UPDATING THE TOTAL LATER
+-----------------------------------------------------------------
+Open the sheet, Funds tab, change the number in "raised".
+The website picks it up the next time someone loads the page.
+
+To hide the bar entirely, set goal to 0 or delete the row.

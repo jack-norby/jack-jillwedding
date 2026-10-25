@@ -29,6 +29,31 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
+// ---- Honeymoon fund progress, read from the Funds tab of the sheet ----
+function money(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+function showFunds(funds) {
+  if (!funds) return;
+  document.querySelectorAll('.fund-meter').forEach(function (meter) {
+    var f = funds[meter.getAttribute('data-fund')];
+    if (!f || !f.goal) return;
+    var raised = Number(f.raised) || 0;
+    var goal = Number(f.goal);
+    var pct = Math.max(0, Math.min(100, (raised / goal) * 100));
+    meter.querySelector('.raised').textContent = money(raised);
+    meter.querySelector('.of').textContent = 'of ' + money(goal) + ' so far';
+    meter.querySelector('.fund-bar span').style.width = pct + '%';
+    meter.hidden = false;
+  });
+}
+
+fetch(REGISTRY_API + '?action=funds')
+  .then(function (r) { return r.json(); })
+  .then(function (data) { showFunds(data && data.funds); })
+  .catch(function () { /* no meter is fine; the Venmo link still works */ });
+
   function markClaimed(ids) {
     ids.forEach(function (id) {
       var el = document.querySelector('.gift[data-id="' + id + '"]');
