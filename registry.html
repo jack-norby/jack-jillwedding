@@ -41,7 +41,12 @@
 <div class="fund">
   <p>We are hoping to get away together for a few days after the wedding.
      If you would like to help send us off, we would be so grateful.</p>
-  <div class="fund-meter" data-fund="honeymoon" hidden>
+  <!-- EDIT ME: the two numbers below drive the progress bar.
+       data-goal   = what you are hoping to raise
+       data-raised = how much has come in so far
+       Plain numbers, no dollar signs or commas.
+       Set data-goal="0" to hide the bar completely. -->
+  <div class="fund-meter" data-fund="honeymoon" data-goal="5000" data-raised="0" hidden>
     <p class="fund-amounts"><strong class="raised"></strong> <span class="of"></span></p>
     <div class="fund-bar"><span></span></div>
   </div>
@@ -484,6 +489,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="registry.js"></script>
+<script src="registry.js?v=2"></script>
 </body>
 </html>
